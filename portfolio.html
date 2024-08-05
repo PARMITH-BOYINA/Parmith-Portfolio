@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+      :root {
+        --primary-color: #000000;
+        --primary-color-dark: #87e9ba;
+        --secondary-color: #ca8a04;
+        --text-dark: #9290c3;
+        --text-light: #6b7280;
+        --extra-light: #000000;
+        --max-width: 1200px;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      nav {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        z-index: 99;
+      }
+
+      .nav__content {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 1.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        transition: 0.3s;
+      }
+
+      nav .logo a:hover {
+        color: var(--primary-color-dark);
+      }
+
+      nav .checkbox {
+        display: none;
+      }
+
+      nav input {
+        display: none;
+      }
+
+      nav .checkbox i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        list-style: none;
+        transition: left 0.3s;
+      }
+
+      ul li a {
+        padding: 0.5rem 1rem;
+        border: 2px solid transparent;
+        text-decoration: none;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: 0.3s;
+      }
+
+      ul li a:hover {
+        border-top-color: var(--secondary-color);
+        border-bottom-color: var(--secondary-color);
+        color: var(--secondary-color);
+      }
+
+      .section {
+        background-color: var(--extra-light);
+        padding: 5rem 1rem;
+      }
+
+      .section__container {
+        min-height: 100vh;
+        max-width: var(--max-width);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .subtitle {
+        letter-spacing: 2px;
+        color: var(--text-light);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 3rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .title span {
+        font-weight: 600;
+      }
+
+      .description {
+        line-height: 1.5rem;
+        color: var(--text-light);
+        margin-bottom: 2rem;
+      }
+
+      .action__btns {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .action__btns button {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 1rem 2rem;
+        outline: none;
+        border: 2px solid var(--primary-color);
+        border-radius: 10px;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+
+      .image img {
+        width: min(25rem, 90%);
+        border-radius: 100%;
+      }
+
+      .skills__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .skill {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex: 1 1 calc(33% - 2rem);
+        transition: transform 0.3s, box-shadow 0.3s;
+        max-width: 30%;
+      }
+
+      @media (max-width: 900px) {
+        .skill {
+          flex: 1 1 calc(45% - 2rem);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .skill {
+          flex: 1 1 100%;
+        }
+      }
+
+      .skill:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .skill p {
+        color: var(--text-light);
+      }
+
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      #contact ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #contact li {
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+      }
+
+      #contact a {
+        color: var(--secondary-color);
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      #contact a:hover {
+        color: var(--primary-color-dark);
+      }
+
+      .section h2 {
+        color: #ffffff;
+      }
+
+      .contact-icon {
+        width: 24px;
+        height: 24px;
+      }
+    </style>
+    <title>Parmith Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="C:\Users\lenovo\Desktop\favicon.jpg">
+  </head>
+  <body>
+    <nav>
+      <div class="nav__content">
+        <div class="logo"><a href="#">Parmith Portfolio</a></div>
+        <label for="check" class="checkbox">
+          <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" />
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="C:\Users\lenovo\Desktop\Parmith Sai Resume.pdf" target="_blank">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="section" id="home">
+      <div class="section__container">
+        <div class="content">
+          <h1 class="title"><br/>
+            <span>Parmith Sai Boyina<br /></span> a Computer Science Student
+          </h1>
+          <p class="description">
+            Student at GITAM University, Vizag. <br />I am passionate about learning
+            new things and expanding my knowledge base. I am currently working
+            on building my portfolio to showcase my academic and personal
+            achievements. Through my experiences in school and extracurricular
+            activities, I have gained valuable skills in leadership, teamwork,
+            and problem-solving. I look forward to sharing my journey with you.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="c:\Users\lenovo\Downloads\WhatsApp Image 2024-03-18 at 9.10.51 PM.jpeg"
+            alt="profile"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section__container">
+        <div class="content">
+          <h2>Skills</h2>
+        </div>
+        <div class="skills__list">
+          <div class="skill">
+            <h3>Html</h3>
+            <p>Began my journey in web development with this.</p>
+          </div>
+          <div class="skill">
+            <h3>CSS</h3>
+            <p>I styled the website using this.</p>
+          </div>
+          <div class="skill">
+            <h3>React JS</h3>
+            <p>Used as a frontend framework for developing websites.</p>
+          </div>
+          <div class="skill">
+            <h3>C Programming</h3>
+            <p>Solid foundation in C programming.</p>
+          </div>
+          <div class="skill">
+            <h3>Java Script</h3>
+            <p>Used for the functionality of the web.</p>
+          </div>
+          <div class="skill">
+            <h3>Java</h3>
+            <p>Experienced in coding and utilizing object-oriented programming concepts in Java.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section__container">
+        <div class="content">
+          <h2>Contact</h2>
+          <ul>
+            <li>
+              <a href="mailto:parmithsai@gmail.com">
+                <img class="contact-icon" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
+                parmithsai@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/parmith-sai-boyina-243643249" target="_blank">
+                <img class="contact-icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/PARMITH-BOYINA" target="_blank">
+                <img class="contact-icon" src="C:\Users\lenovo\OneDrive\Desktop\images.png" alt="GitHub Icon">
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
